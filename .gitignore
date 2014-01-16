@@ -1,0 +1,7 @@
+**.mk
+**.log
+**.DS_Store
+
+out
+Makefile
+gyp-mac-tool
