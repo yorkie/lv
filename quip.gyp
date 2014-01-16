@@ -6,11 +6,12 @@
       'type': 'executable',
       'sources': [
         'src/quip.c',
+        'src/ast.c',
+        'src/parser.c',
       ],
       'include_dirs': [
         '.',
         'src',
-        'include',
         'deps/libuv/include',
       ],
       'dependencies': [
