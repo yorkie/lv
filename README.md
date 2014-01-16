@@ -3,7 +3,7 @@
 
 A new language to use [libuv](https://github.com/joyent/libuv) for lower resource usage.
 
-This project is under being developing by @Yorkie.
+This project is under being developing by [@Yorkie](https://github.com/yorkie).
 
 
 ### What I Am Expected
