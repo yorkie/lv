@@ -8,6 +8,7 @@
         'src/quip.c',
         'src/ast.c',
         'src/parser.c',
+        'src/vm.c',
       ],
       'include_dirs': [
         '.',

@@ -7,6 +7,8 @@
 #ifndef __QUIP_H__
 #define __QUIP_H__
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <uv.h>
 
 /*
@@ -14,6 +16,7 @@
  */
 
 #define QUIP_VERSION "0.0.1"
+#define QUIP_OK 0
 
 
 #define QUIP_PRINT(format, ...)                     \

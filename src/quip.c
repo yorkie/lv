@@ -6,7 +6,9 @@
 
 #include <stdio.h>
 #include <uv.h>
+
 #include "quip.h"
+#include "parser.h"
 
 int main(int argc, char **argv) {
   
@@ -19,7 +21,15 @@ int main(int argc, char **argv) {
   QUIP_PRINT("Hello Quip!");
   
   uv_run(loop, UV_RUN_DEFAULT);
-  
+
+  quip_parser_t * p = quip_parser_new();
+  char * demo_src = "var a = 10\n";
+
+  quip_parser_parse(p, demo_src);
+
+  /*
+   * Blocking this window
+   */
   scanf("%d", &blocking);
   return 0;
 }
