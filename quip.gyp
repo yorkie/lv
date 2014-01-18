@@ -9,11 +9,16 @@
         'src/ast.c',
         'src/parser.c',
         'src/vm.c',
+        'deps/linenoise/linenoise.c',
+        'deps/khash.c',
+        'deps/kvec.c',
       ],
       'include_dirs': [
         '.',
         'src',
+        'deps',
         'deps/libuv/include',
+        'deps/linenoise',
       ],
       'dependencies': [
         'deps/libuv/uv.gyp:libuv',
