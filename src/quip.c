@@ -17,7 +17,7 @@ int eval(char * src, const char * path) {
   
   /* parse the input */
   quip_lexer_t lex;
-  quip_lexer_init(&lex, source, path);
+  quip_lexer_init(&lex, src, path);
   quip_parser_t parser;
   quip_parser_init(&parser, &lex);
   quip_block_node_t *root;
@@ -60,7 +60,7 @@ int main(int argc, char **argv) {
   /* eval file */
   orig = path = argv[1];
   read:
-  if (!(source = file_read(path))) {
+  if (!(src = file_read(path))) {
     if (!tried_ext) {
       tried_ext = 1;
       char buf[256];
