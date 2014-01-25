@@ -2,8 +2,8 @@
 #include "vm.h"
 #include "opcodes.h"
 
-quip_object_t *
-quip_eval(quip_vm_t *vm) {
+quip_object_t * quip_eval(quip_vm_t *vm) {
+  
   quip_dump(vm);
   printf("\n");
   quip_instruction_t *ip = vm->main->ip;
