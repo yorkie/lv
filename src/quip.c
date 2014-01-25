@@ -63,7 +63,7 @@ int main(int argc, char **argv) {
     if (!tried_ext) {
       tried_ext = 1;
       char buf[256];
-      snprintf(buf, 256, "%s.luna", path);
+      snprintf(buf, 256, "%s.q", path);
       path = buf;
       goto read;
     }
