@@ -95,7 +95,7 @@ scan_ident(luna_lexer_t *self, int c) {
   case 2:
     if (0 == strcmp("if", buf)) return token(IF);
     else {
-      /* TODO */
+      goto ToString;
     }
   case 3:
     if (0 == strcmp("for", buf)) return token(FOR);
@@ -104,13 +104,13 @@ scan_ident(luna_lexer_t *self, int c) {
     else if (0 == strcmp("new", buf)) return token(NEW);
     else if (0 == strcmp("try", buf)) return token(TRY);
     else {
-      /* TODO */
+      goto ToString;
     }
   case 4:
     if (0 == strcmp("this", buf)) return token(THIS);
     else if (0 == strcmp("else", buf)) return token(THIS);
     else {
-      /* TODO */
+      goto ToString;
     }
   case 5:
     if (0 == strcmp("super", buf)) return token(SUPER);
@@ -118,17 +118,18 @@ scan_ident(luna_lexer_t *self, int c) {
     else if (0 == strcmp("catch", buf)) return token(CATCH);
     else if (0 == strcmp("throw", buf)) return token(THROW);
     else {
-      /* TODO */
+      goto ToString;
     }
   default:
     if (0 == strcmp("return", buf)) return token(RETURN);
     else if (0 == strcmp("finally", buf)) return token(FINALLY);
     else if (0 == strcmp("inherits", buf)) return token(INHERITS);
     else {
-      /* TODO */
+      goto ToString;
     }
   }
 
+ToString:
   self->tok.value.as_string = strdup(buf);
   return 1;
 }
