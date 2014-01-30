@@ -3,6 +3,19 @@
 #include "lexer.h"
 
 /*
+ * Next char in the array.
+ */
+
+#ifdef EBUG_LEXER
+#define next \
+  (self->stash = self->source[self->offset++]\
+    , fprintf(stderr, "'%c'\n", self->stash)\
+    , self->stash)
+#else
+#define next (self->stash = self->source[self->offset++])
+#endif
+
+/*
  * Undo the previous char.
  */
 
