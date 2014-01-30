@@ -91,7 +91,7 @@ scan_ident(quip_lexer_t *self, int c) {
   undo;
 
   buf[len++] = 0;
-  switch (len) {
+  switch (len-1) {
   case 2:
     if (0 == strcmp("if", buf)) return token(IF);
     else {
