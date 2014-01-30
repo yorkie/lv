@@ -72,20 +72,16 @@ int quip_scan(quip_lexer_t * self) {
     case ':': return token(COLON);
     case '+':
       switch (next) {
-        case '+': return token(OP_INCR);
         case '=': return token(OP_PLUS_ASSIGN);
         default: return undo, token(OP_PLUS);
       }
     case '-':
-      switch (next) {
-        case '-': return token(OP_DECR);
         case '=': return token(OP_MINUS_ASSIGN);
         default: return undo, token(OP_MINUS);
       }
     case '*':
       switch (next) {
         case '=': return token(OP_MUL_ASSIGN);
-        case '*': return token(OP_POW);
         default: return undo, token(OP_MUL);
       }
     case '/':
@@ -102,19 +98,13 @@ int quip_scan(quip_lexer_t * self) {
         : (undo, token(OP_ASSIGN));
     case '&':
       switch (next) {
-        case '&':
-          return '=' == next
-            ? token(OP_AND_ASSIGN)
-            : (undo, token(OP_AND));
+        case '&': return token(OP_AND);
         default:
-          return undo, token(OP_FORK);
+          return undo, token(OP_BIT_AND);
       }
     case '|':
       switch (next) {
-        case '|':
-          return '=' == next
-            ? token(OP_OR_ASSIGN)
-            : (undo, token(OP_OR));
+        case '|': return token(OP_OR);
         default:
           return undo, token(OP_BIT_OR);
       }
@@ -130,9 +120,6 @@ int quip_scan(quip_lexer_t * self) {
         case '>': return token(OP_BIT_SHR);
         default: return undo, token(OP_GT);
       }
-    case '#':
-      while ((c = next) != '\n' && c) ; undo;
-      goto scan;
     case '\n':
       return scan_newline(self);
     case '"':
@@ -142,9 +129,7 @@ int quip_scan(quip_lexer_t * self) {
       token(EOS);
       return 0;
     default:
-      if (isalpha(c) || '_' == c) return scan_ident(self, c);
-      if (isdigit(c) || '.' == c) return scan_number(self, c);
-      error("illegal character");
+      /* TODO */
       return 0;
   }
 }

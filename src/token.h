@@ -49,7 +49,6 @@
   t(OP_DOT, ".") \
   t(OP_LNOT, "not") \
   t(OP_NOT, "!") \
-  t(OP_FORK, "&") \
   t(OP_PLUS, "+") \
   t(OP_MINUS, "-") \
   t(OP_MUL, "*") \
