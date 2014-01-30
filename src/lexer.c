@@ -108,7 +108,7 @@ scan_ident(quip_lexer_t *self, int c) {
     }
   case 4:
     if (0 == strcmp("this", buf)) return token(THIS);
-    else if (0 == strcmp("else", buf)) return token(THIS);
+    else if (0 == strcmp("else", buf)) return token(ELSE);
     else {
       goto ToString;
     }
@@ -133,6 +133,8 @@ ToString:
   self->tok.value.as_string = strdup(buf);
   return 1;
 }
+
+
 
 /* 
  * Scan tokens
