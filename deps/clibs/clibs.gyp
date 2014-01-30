@@ -6,6 +6,7 @@
       'sources': [
         'buffer.c',
         'file.c',
+        'readline.c',
       ],
       'include_dirs': [
         '.',

@@ -5,29 +5,29 @@
 // Copyright (c) 2014 Yorkie Neil <yorkiefixer@gmail.com>
 //
 
-#ifndef __QUIP_PARSER_H__
-#define __QUIP_PARSER_H__
+#ifndef __QUIP_PARSER__
+#define __QUIP_PARSER__
 
-typedef struct quip_parser_s {
-  int op;
+#include "lexer.h"
+#include "ast.h"
 
+/*
+ * Parser struct.
+ */
+
+typedef struct {
+  char *ctx;
+  char *err;
+  int in_args;
+  quip_token_t *tmp;
+  quip_token_t *la;
+  quip_token_t lb;
+  quip_lexer_t *lex;
 } quip_parser_t;
 
+// protos
 
-/*
- * Create a new parser to do some stuffs
- */
-quip_parser_t * quip_parser_new();
+void
+quip_parser_init(quip_parser_t *self, quip_lexer_t *lex);
 
-/*
- * Destroy this parser
- */
-int quip_parser_destroy(quip_parser_t*);
-
-/*
- * Parse the source in this parser
- */
-int quip_parser_parse(quip_parser_t*, char*);
-
-
-#endif
+#endif /* __QUIP_PARSER__ */

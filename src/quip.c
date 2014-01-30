@@ -14,6 +14,14 @@
 #include "lexer.h"
 #include "parser.h"
 
+// -- ast
+
+static int ast = 0;
+
+// -- tokens
+
+static int tokens = 0;
+
 
 int eval(char * src, const char * path) {
   
@@ -21,9 +29,9 @@ int eval(char * src, const char * path) {
   quip_lexer_t lex;
   quip_lexer_init(&lex, src, path);
   quip_parser_t parser;
+  quip_parser_init(&parser, &lex);
 
   /* --tokens */
-  /*
   if (tokens) {
     while (quip_scan(&lex)) {
       printf("  \e[90m%d : \e[m", lex.lineno);
@@ -31,7 +39,6 @@ int eval(char * src, const char * path) {
     }
     return 0;
   }
-  */
 
   /* oh noes! */
   /*
