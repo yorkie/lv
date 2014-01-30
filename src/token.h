@@ -47,7 +47,6 @@
   t(SEMICOLON, ";") \
   t(COMMA, ",") \
   t(OP_DOT, ".") \
-  t(OP_LNOT, "not") \
   t(OP_NOT, "!") \
   t(OP_PLUS, "+") \
   t(OP_MINUS, "-") \

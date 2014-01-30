@@ -40,7 +40,8 @@
 #define error(msg) (self->error = msg, token(ILLEGAL))
 
 
-void quip_lexer_init(quip_lexer_t * self, char * source, const char * filename) {
+void 
+quip_lexer_init(quip_lexer_t * self, char * source, const char * filename) {
   self->error = NULL;
   self->source = source;
   self->filename = filename;
@@ -48,7 +49,96 @@ void quip_lexer_init(quip_lexer_t * self, char * source, const char * filename) 
   self->offset = 0;
 }
 
-int quip_scan(quip_lexer_t * self) {
+/*
+ * Convert hex digit `c` to a base 10 int,
+ * returning -1 on failure.
+ */
+
+static int
+hex(const char c) {
+  if (c >= '0' && c <= '9') return c - '0';
+  if (c >= 'a' && c <= 'f') return c - 'a' + 10;
+  if (c >= 'A' && c <= 'F') return c - 'A' + 10;
+  return -1;
+}
+
+/*
+ * Scan newline.
+ */
+
+static int
+scan_newline(quip_lexer_t *self) {
+  int curr = 0;
+  ++self->lineno;
+  while (accept(' ')) ++curr;
+  token(NEWLINE);
+  return 1;
+}
+
+/*
+ * Scan identifier.
+ */
+
+static int
+scan_ident(luna_lexer_t *self, int c) {
+  int len = 0;
+  char buf[128]; // TODO: ditch these buffers
+  token(ID);
+
+  do {
+    buf[len++] = c;
+  } while (isalpha(c = next) || isdigit(c) || '_' == c);
+  undo;
+
+  buf[len++] = 0;
+  switch (len) {
+  case 2:
+    if (0 == strcmp("if", buf)) return token(IF);
+    else {
+      /* TODO */
+    }
+  case 3:
+    if (0 == strcmp("for", buf)) return token(FOR);
+    else if (0 == strcmp("set", buf)) return token(SETTER);
+    else if (0 == strcmp("get", buf)) return token(GETTER);
+    else if (0 == strcmp("new", buf)) return token(NEW);
+    else if (0 == strcmp("try", buf)) return token(TRY);
+    else {
+      /* TODO */
+    }
+  case 4:
+    if (0 == strcmp("this", buf)) return token(THIS);
+    else if (0 == strcmp("else", buf)) return token(THIS);
+    else {
+      /* TODO */
+    }
+  case 5:
+    if (0 == strcmp("super", buf)) return token(SUPER);
+    else if (0 == strcmp("yield", buf)) return token(YIELD);
+    else if (0 == strcmp("catch", buf)) return token(CATCH);
+    else if (0 == strcmp("throw", buf)) return token(THROW);
+    else {
+      /* TODO */
+    }
+  default:
+    if (0 == strcmp("return", buf)) return token(RETURN);
+    else if (0 == strcmp("finally", buf)) return token(FINALLY);
+    else if (0 == strcmp("inherits", buf)) return token(INHERITS);
+    else {
+      /* TODO */
+    }
+  }
+
+  self->tok.value.as_string = strdup(buf);
+  return 1;
+}
+
+/* 
+ * Scan tokens
+ */
+
+int 
+quip_scan(quip_lexer_t * self) {
   int c;
   token(ILLEGAL);
 
