@@ -80,7 +80,7 @@ scan_newline(quip_lexer_t *self) {
  */
 
 static int
-scan_ident(luna_lexer_t *self, int c) {
+scan_ident(quip_lexer_t *self, int c) {
   int len = 0;
   char buf[128]; // TODO: ditch these buffers
   token(ID);
