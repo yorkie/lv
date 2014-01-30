@@ -134,7 +134,55 @@ ToString:
   return 1;
 }
 
+/*
+ * Scan string hex literal, returning -1 on invalid digits.
+ */
 
+static int
+hex_literal(quip_lexer_t *self) {
+  int a = hex(next);
+  int b = hex(next);
+  if (a > -1 && b > -1) return a << 4 | b;
+  error("string hex literal \\x contains invalid digits");
+  return -1;
+}
+
+/*
+ * Scan string.
+ */
+
+static int
+scan_string(quip_lexer_t *self, int quote) {
+  int c, len = 0;
+  char buf[128];
+  token(STRING);
+
+  while (quote != (c = next)) {
+    switch (c) {
+      case '\n': ++self->lineno; break;
+      case '\\':
+        switch (c = next) {
+          case 'a': c = '\a'; break;
+          case 'b': c = '\b'; break;
+          case 'e': c = '\e'; break;
+          case 'f': c = '\f'; break;
+          case 'n': c = '\n'; break;
+          case 'r': c = '\r'; break;
+          case 't': c = '\t'; break;
+          case 'v': c = '\v'; break;
+          case 'x':
+            if (-1 == (c = hex_literal(self)))
+              return 0;
+        }
+        break;
+    }
+    buf[len++] = c;
+  }
+
+  buf[len++] = 0;
+  self->tok.value.as_string = strdup(buf); // TODO: remove
+  return 1;
+}
 
 /* 
  * Scan tokens
