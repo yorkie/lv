@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include <uv.h>
 
+#include "clibs/file.h"
+
 #include "quip.h"
 #include "vm.h"
 #include "lexer.h"

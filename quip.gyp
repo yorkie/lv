@@ -7,6 +7,7 @@
       'sources': [
         'src/quip.c',
         'src/ast.c',
+        'src/lexer.c',
         'src/parser.c',
         'src/token.c',
         'src/vm.c',
@@ -22,6 +23,7 @@
         'deps/linenoise',
       ],
       'dependencies': [
+        'deps/clibs/clibs.gyp:clibs',
         'deps/libuv/uv.gyp:libuv',
       ],
       'link_settings': {

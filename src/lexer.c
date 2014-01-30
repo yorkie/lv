@@ -35,6 +35,7 @@ void quip_lexer_init(quip_lexer_t * self, char * source, const char * filename) 
   self->offset = 0;
 }
 
-int quip_scan(luna_lexer_t * self) {
+int quip_scan(quip_lexer_t * self) {
   // TODO
+  return 0;
 }
