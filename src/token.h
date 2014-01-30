@@ -19,6 +19,7 @@
   t(EOS, "end-of-source") \
   t(NEWLINE, "newline") \
   t(ID, "id") \
+  t(VARIABLE, "var") \
   t(FUNCTION, "function") \
   t(WHILE, "while") \
   t(IF, "if") \

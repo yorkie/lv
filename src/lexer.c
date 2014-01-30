@@ -155,7 +155,7 @@ static int
 scan_string(quip_lexer_t *self, int quote) {
   int c, len = 0;
   char buf[128];
-  token(STRING);
+  token(VARIABLE);
 
   while (quote != (c = next)) {
     switch (c) {
