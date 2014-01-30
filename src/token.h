@@ -19,19 +19,23 @@
   t(EOS, "end-of-source") \
   t(NEWLINE, "newline") \
   t(ID, "id") \
-  t(INT, "int") \
-  t(FLOAT, "float") \
-  t(STRING, "string") \
-  t(DEF, "def") \
+  t(FUNCTION, "function") \
   t(WHILE, "while") \
-  t(UNTIL, "until") \
   t(IF, "if") \
-  t(UNLESS, "unless") \
   t(ELSE, "else") \
   t(FOR, "for") \
-  t(LET, "let") \
-  t(END, "end") \
   t(RETURN, "return") \
+  t(SETTER, "set") \
+  t(GETTER, "get") \
+  t(THIS, "this") \
+  t(SUPER, "super") \
+  t(NEW, "new") \
+  t(INHERITS, "inherits") \
+  t(YIELD, "yield") \
+  t(TRY, "try") \
+  t(CATCH, "catch") \
+  t(THROW, "throw") \
+  t(FINALLY, "finally") \
   t(LBRACE, "{") \
   t(RBRACE, "}") \
   t(LPAREN, "(") \
@@ -47,13 +51,10 @@
   t(OP_NOT, "!") \
   t(OP_FORK, "&") \
   t(OP_PLUS, "+") \
-  t(OP_INCR, "++") \
   t(OP_MINUS, "-") \
-  t(OP_DECR, "--") \
   t(OP_MUL, "*") \
   t(OP_DIV, "/") \
   t(OP_MOD, "%") \
-  t(OP_POW, "**") \
   t(OP_GT, ">") \
   t(OP_LT, "<") \
   t(OP_GTE, ">=") \
@@ -67,9 +68,7 @@
   t(OP_MINUS_ASSIGN, "-=") \
   t(OP_MUL_ASSIGN, "*=") \
   t(OP_DIV_ASSIGN, "/=") \
-  t(OP_AND_ASSIGN, "&&=") \
-  t(OP_OR_ASSIGN, "||=") \
-  t(OP_BIT_AND, "and") \
+  t(OP_BIT_AND, "&") \
   t(OP_BIT_OR, "|") \
   t(OP_BIT_XOR, "^") \
   t(OP_BIT_NOT, "~") \
