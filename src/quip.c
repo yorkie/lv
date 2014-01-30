@@ -19,10 +19,9 @@ int eval(char * src, const char * path) {
   quip_lexer_t lex;
   quip_lexer_init(&lex, src, path);
   quip_parser_t parser;
-  quip_parser_init(&parser, &lex);
-  quip_block_node_t *root;
 
   /* --tokens */
+  /*
   if (tokens) {
     while (quip_scan(&lex)) {
       printf("  \e[90m%d : \e[m", lex.lineno);
@@ -30,23 +29,30 @@ int eval(char * src, const char * path) {
     }
     return 0;
   }
+  */
 
   /* oh noes! */
+  /*
   if (!(root = quip_parse(&parser))) {
     quip_report_error(&parser);
     return 1;
   }
+  */
 
   /* --ast */
+  /*
   if (ast) {
     quip_prettyprint((quip_node_t *) root);
     return 1;
   }
+  */
 
   /* evaluate */
+  /*
   quip_vm_t *vm = quip_gen((quip_node_t *) root);
   quip_object_t *obj = quip_eval(vm);
   quip_object_inspect(obj);
+  */
 
   return 0;
 }

@@ -8,6 +8,7 @@
         'src/quip.c',
         'src/ast.c',
         'src/parser.c',
+        'src/token.c',
         'src/vm.c',
         'deps/linenoise/linenoise.c',
         'deps/khash.c',

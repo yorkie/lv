@@ -9,15 +9,15 @@
  * Instruction.
  */
 
-typedef uint32_t luna_instruction_t;
+typedef uint32_t quip_instruction_t;
 
 /*
  * Luna activation record.
  */
 
 typedef struct {
-  luna_instruction_t *ip;
-  luna_instruction_t *code; // TODO: pointer to single malloc()?
+  quip_instruction_t *ip;
+  quip_instruction_t *code; // TODO: pointer to single malloc()?
   int nconstants;
   int *constants;
 } quip_activation_t;
@@ -98,9 +98,6 @@ typedef struct {
 
 #define RK(n) \
    ((n) < 32 ? R(n) : K(n))
-
-
-quip_object_t * quip_eval(luna_vm_t *vm);
 
 
 #endif

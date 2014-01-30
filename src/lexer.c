@@ -12,7 +12,7 @@
  * Assign token `t`.
  */
 
-#define token(t) (self->tok.type = LUNA_TOKEN_##t)
+#define token(t) (self->tok.type = QUIP_TOKEN_##t)
 
 /*
  * Accept char `c` or undo and return 0.
