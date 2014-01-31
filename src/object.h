@@ -41,21 +41,14 @@ typedef enum {
  * Quip object.
  */
 
-struct quip_object_struct {
+typedef struct quip_object_struct {
   quip_object type;
   union {
     void *as_pointer;
     int as_int;
     float as_float;
   } value;
-};
-
-/* 
- * Function
- */
-
-void
-quip_object_inspect(quip_object_t *self);
+} quip_object_t;
 
 quip_object_t *
 quip_int_new(int val);
