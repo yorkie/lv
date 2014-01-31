@@ -9,6 +9,7 @@
 #define __QUIP_AST_H__
 
 #include "token.h"
+#include "vec.h"
 
 /*
  * Nodes.

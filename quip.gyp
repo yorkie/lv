@@ -11,6 +11,7 @@
         'src/parser.c',
         'src/token.c',
         'src/vm.c',
+        'src/vec.c',
         'deps/linenoise/linenoise.c',
         'deps/khash.c',
         'deps/kvec.c',
