@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var path = require('path');
+var argv = require('minimist')(process.argv.slice(2));
+var compile = require('../lib').compile;
+var files = argv._;
+
+if (files.length === 0) {
+  fs.createReadStream(path.join(__dirname, './usage.txt'))
+    .on('end', process.exit)
+    .pipe(process.stdout);
+}
+
+// compile files
+compile(files);

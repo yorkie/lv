@@ -1,0 +1,35 @@
+{
+  "name": "quip",
+  "version": "0.0.1",
+  "description": "a compiler for javascript",
+  "main": "index.js",
+  "bin": {
+    "quip": "./bin/quip"
+  },
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "tape tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yorkie/quip.git"
+  },
+  "keywords": [
+    "javascript",
+    "lanuage"
+  ],
+  "dependencies": {
+    "minimist": "~0.0.8"
+  },
+  "devDependencies": {
+    "tape": "~1.0.0"
+  },
+  "author": "Yorkie Neil <yorkiefixer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yorkie/quip/issues"
+  },
+  "homepage": "https://github.com/yorkie/quip"
+}
