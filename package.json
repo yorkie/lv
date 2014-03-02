@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "tape tests/*.js",
-    "asm": "sh build.sh"
+    "asm": "sh build.sh && build/hello"
   },
   "repository": {
     "type": "git",

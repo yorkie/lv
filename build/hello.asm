@@ -2,9 +2,9 @@
 
 section .text
 
-global mystart                ; make the main function externally visible
+global main                 ; make the main function externally visible
 
-mystart:
+main:
 
 ; 1 print "hello, world"
 
@@ -35,5 +35,5 @@ mystart:
     
 section .data
 
-  mymsg db "hello, world", 0xa  ; string with a carriage-return
-  mylen equ $-mymsg             ; string length in bytes
+  mymsg db "hello, world", 0xa     ; string with a carriage-return
+  mylen equ $-mymsg                 ; string length in bytes
