@@ -10,7 +10,8 @@
     "example": "examples"
   },
   "scripts": {
-    "test": "tape tests/*.js"
+    "test": "tape tests/*.js",
+    "asm": "sh build.sh"
   },
   "repository": {
     "type": "git",
