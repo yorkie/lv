@@ -1,7 +1,10 @@
 **.mk
 **.log
 **.DS_Store
+**.asm
+**.out
 
 out
+asm-test
 gyp-mac-tool
 node_modules

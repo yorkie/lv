@@ -28,7 +28,7 @@ main:
     ; 2b make the call to sys call to exit
     mov eax, 0x1              ; system call number for exit
     sub esp, 4                ; OS X (and BSD) system calls needs "extra space" on stack
-    int 0x80                  ; make the system call
+    int 128                  ; make the system call
 
     ; 2c no need to clean up the stack because no code here would executed: already exited
     
