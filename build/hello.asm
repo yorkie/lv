@@ -1,8 +1,7 @@
 ; hello.asm - a "hello, world" program using NASM
 
 section .text
-
-global main                 ; make the main function externally visible
+global main
 
 main:
 
@@ -35,5 +34,5 @@ main:
     
 section .data
 
-  mymsg db "hello, world", 0xa     ; string with a carriage-return
-  mylen equ $-mymsg                 ; string length in bytes
+  mymsg: db "hello, world", 0xa     ; string with a carriage-return
+  mylen: equ $-mymsg                 ; string length in bytes
