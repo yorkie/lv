@@ -1,8 +1,8 @@
 **.mk
 **.log
 **.DS_Store
-**.asm
 **.out
+**.o
 
 out
 asm-test
