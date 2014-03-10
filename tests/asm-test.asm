@@ -5,8 +5,8 @@ global main
 main:
 
   ; system call: write
-  push dword _lamb_var_69_len
-  push dword _lamb_var_69
+  push dword _lamb_var_60_len
+  push dword _lamb_var_60
   push dword 1
   mov eax, 4
   sub esp, 4
@@ -14,7 +14,7 @@ main:
   add esp, 16
 
   ; system call: unlink
-  push dword _lamb_var_71
+  push dword _lamb_var_74
   mov eax, 10
   sub esp, 4
   int 128
@@ -27,7 +27,7 @@ main:
 
 section .data
 
-  _lamb_var_69: db "Hello worldhdjsahdjs", 0x0a
-  _lamb_var_69_len: equ $-_lamb_var_69
-  _lamb_var_71: db "/opt/asm-test.sample", 0x0a
+  _lamb_var_60: db "Hello worldhdjsahdjs", 0x0a
+  _lamb_var_60_len: equ $-_lamb_var_60
+  _lamb_var_74: db "/opt/asm-test.sample", 0x0a
 
