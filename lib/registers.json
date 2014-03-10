@@ -1,4 +1,28 @@
 {
   "EAX": "eax",
-  "ESP": "esp"
+  "ECX": "ecx",
+  "EDX": "edx",
+  "EBX": "ebx",
+  "ESI": "esi",
+  "EDI": "edi",
+  "ESP": "esp",
+  "EPB": "epb",
+
+  "AX": "ax",
+  "CX": "cx",
+  "DX": "dx",
+  "BX": "bx",
+  "SI": "si",
+  "DI": "di",
+  "SP": "sp",
+  "BP": "bp",
+
+  "AH": "ah",
+  "AL": "al",
+  "CH": "ch",
+  "CL": "cl",
+  "DH": "dh",
+  "DL": "dl",
+  "BH": "bh",
+  "BL": "bl"
 }
