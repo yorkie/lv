@@ -1,6 +1,6 @@
 {
   "name": "lv",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a compiler for javascript",
   "main": "index.js",
   "bin": {
