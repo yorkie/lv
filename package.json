@@ -19,7 +19,8 @@
     "lanuage"
   ],
   "dependencies": {
-    "minimist": "~0.0.8"
+    "minimist": "~0.0.8",
+    "esprima": "~1.0.4"
   },
   "devDependencies": {
     "tape": "~1.0.0"
