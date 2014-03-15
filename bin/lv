@@ -44,7 +44,7 @@ function lv_compile() {
     console.error(err);
   });
   mainparser.on('done', function(program) {
-    fs.writeFile(out, program, function() {
+    fs.writeFile(out+'.asm', program, function() {
       var child = exec(util.format('sh %s %s', path.join(__dirname, '../build.sh'), out));
       child.stdout.pipe(process.stdout);
       child.stderr.pipe(process.stderr);
