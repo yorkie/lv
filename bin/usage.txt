@@ -1,3 +1,7 @@
   
-  lv [files] [option]
+lv [command] [file]
+
+Commands:
+  run       run your program directly
+  compile   compile your program to output path
 

@@ -2,15 +2,52 @@
 
 var fs = require('fs');
 var path = require('path');
+var Parser = require('../').Parser;
+var util = require('util');
+var exec = require('child_process').exec;
 var argv = require('minimist')(process.argv.slice(2));
-var compile = require('../lib').compile;
-var files = argv._;
+var command = argv._[0];
 
-if (files.length === 0) {
+function usage() {
   fs.createReadStream(path.join(__dirname, './usage.txt'))
     .on('end', process.exit)
     .pipe(process.stdout);
 }
 
-// compile files
-compile(files);
+if (argv.help || process.argv.slice(2).length === 0) {
+  usage();
+}
+
+switch (command) {
+  case 'run':
+    lv_run();
+    break;
+  case 'compile':
+    lv_compile();
+    break;
+}
+
+function lv_run() {
+  // TODO
+}
+
+function lv_compile() {
+  if (argv._.length < 3) {
+    console.error('output required');
+    return usage();
+  }
+
+  var filename = argv._[1];
+  var out = argv._[2];
+  var mainparser = new Parser(filename);
+  mainparser.on('error', function(err) {
+    console.error(err);
+  });
+  mainparser.on('done', function(program) {
+    fs.writeFile(out, program, function() {
+      var child = exec(util.format('sh %s %s', path.join(__dirname, '../build.sh'), out));
+      child.stdout.pipe(process.stdout);
+      child.stderr.pipe(process.stderr);
+    });
+  })
+}

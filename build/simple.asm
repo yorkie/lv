@@ -5,8 +5,8 @@ global main
 main:
 
   ; system call: write
-  push dword _lamb_var_69_len
-  push dword _lamb_var_69
+  push dword _lamb_var_13_len
+  push dword _lamb_var_13
   push dword 1
   mov eax, 4
   sub esp, 4
@@ -21,6 +21,6 @@ main:
 
 section .data
 
-  _lamb_var_69: db "Hello World!", 0x0a
-  _lamb_var_69_len: equ $-_lamb_var_69
+  _lamb_var_13: db "Hello World!", 0x0a
+  _lamb_var_13_len: equ $-_lamb_var_13
 
