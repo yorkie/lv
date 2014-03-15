@@ -1,13 +1,10 @@
 {
-  "name": "quip",
+  "name": "lv",
   "version": "0.0.1",
   "description": "a compiler for javascript",
   "main": "index.js",
   "bin": {
-    "quip": "./bin/quip"
-  },
-  "directories": {
-    "example": "examples"
+    "lv": "./bin/lv"
   },
   "scripts": {
     "test": "tape tests/*.js",
@@ -15,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yorkie/quip.git"
+    "url": "https://github.com/yorkie/lv.git"
   },
   "keywords": [
     "javascript",
@@ -30,7 +27,7 @@
   "author": "Yorkie Neil <yorkiefixer@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yorkie/quip/issues"
+    "url": "https://github.com/yorkie/lv/issues"
   },
-  "homepage": "https://github.com/yorkie/quip"
+  "homepage": "https://github.com/yorkie/lv"
 }
