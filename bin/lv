@@ -7,6 +7,7 @@ var util = require('util');
 var exec = require('child_process').exec;
 var argv = require('minimist')(process.argv.slice(2));
 var command = argv._[0];
+var DEFAULT_PATH = '/tmp/out';
 
 function usage() {
   fs.createReadStream(path.join(__dirname, './usage.txt'))
@@ -28,26 +29,31 @@ switch (command) {
 }
 
 function lv_run() {
-  // TODO
+  lv_compile(function(err, out) {
+    var child = exec(out);
+    child.stdout.pipe(process.stdout);
+    child.stderr.pipe(process.stderr);
+  });
 }
 
-function lv_compile() {
-  if (argv._.length < 3) {
-    console.error('output required');
-    return usage();
+function lv_compile(callback) {
+  var filename = argv._[1];
+  var out = argv._[2] || DEFAULT_PATH;
+  if (!/\.js$/.test(filename)) {
+    filename += '.js';
   }
 
-  var filename = argv._[1];
-  var out = argv._[2];
   var mainparser = new Parser(filename);
   mainparser.on('error', function(err) {
     console.error(err);
   });
   mainparser.on('done', function(program) {
     fs.writeFile(out+'.asm', program, function() {
-      var child = exec(util.format('sh %s %s', path.join(__dirname, '../build.sh'), out));
+      var child = exec(util.format('sh %s %s', path.join(__dirname, '../build.sh'), out), function() {
+        if (callback && typeof callback === 'function') callback(null, out);
+      });
       child.stdout.pipe(process.stdout);
       child.stderr.pipe(process.stderr);
     });
-  })
+  });
 }
