@@ -4,12 +4,13 @@ global main
 
 main:
 
+  push ebp 
   push dword helloStr
 
 
   ; system call: write
-  push dword helloStr_len
-  push dword helloStr
+  push dword x_len
+  push dword x
   push dword 1
   mov eax, 4
   sub esp, 4
@@ -22,8 +23,10 @@ main:
   sub esp, 4
   int 128
 
+  pop ebp
+
 section .data
 
-  helloStr: db "> Hello World! >.<", 0x0a
-  helloStr_len: equ $-helloStr
+  helloStr: db "1234123", 0x0a
+  x_len: equ $-x
 

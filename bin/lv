@@ -30,6 +30,7 @@ switch (command) {
 
 function lv_run() {
   lv_compile(function(err, out) {
+    if (err) return console.error(err.stack);
     var child = exec(out);
     child.stdout.pipe(process.stdout);
     child.stderr.pipe(process.stderr);
@@ -45,15 +46,13 @@ function lv_compile(callback) {
 
   var mainparser = new Parser(filename);
   mainparser.on('error', function(err) {
-    console.error(err);
+    console.error(err.stack);
   });
   mainparser.on('done', function(program) {
     fs.writeFile(out+'.asm', program, function() {
-      var child = exec(util.format('sh %s %s', path.join(__dirname, '../build.sh'), out), function() {
-        if (callback && typeof callback === 'function') callback(null, out);
+      var child = exec(util.format('sh %s %s', path.join(__dirname, '../build.sh'), out), function(err) {
+        if (callback && typeof callback === 'function') callback(err, out);
       });
-      child.stdout.pipe(process.stdout);
-      child.stderr.pipe(process.stderr);
     });
   });
 }
