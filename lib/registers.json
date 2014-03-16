@@ -6,7 +6,7 @@
   "ESI": "esi",
   "EDI": "edi",
   "ESP": "esp",
-  "EPB": "epb",
+  "EBP": "ebp",
 
   "AX": "ax",
   "CX": "cx",

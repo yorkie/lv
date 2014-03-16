@@ -4,24 +4,12 @@ global main
 
 main:
 
-  mov eax, 2
-  sub esp, 4
-  int 128
+  push dword helloStr
 
 
   ; system call: write
-  push dword _lamb_var_17_len
-  push dword _lamb_var_17
-  push dword 1
-  mov eax, 4
-  sub esp, 4
-  int 128
-  add esp, 16
-
-
-  ; system call: write
-  push dword _lamb_var_16_len
-  push dword _lamb_var_16
+  push dword helloStr_len
+  push dword helloStr
   push dword 1
   mov eax, 4
   sub esp, 4
@@ -36,8 +24,6 @@ main:
 
 section .data
 
-  _lamb_var_17: db "> Hello World!       >.<", 0x0a
-  _lamb_var_17_len: equ $-_lamb_var_17
-  _lamb_var_16: db "------------------------", 0x0a
-  _lamb_var_16_len: equ $-_lamb_var_16
+  helloStr: db "> Hello World! >.<", 0x0a
+  helloStr_len: equ $-helloStr
 
