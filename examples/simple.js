@@ -1,3 +1,5 @@
 
-process.write('Hello World!');
-process.write('Good Jobs! ^.^');
+
+sys.fork();
+sys.write('> Hello World!       >.<');
+sys.write('------------------------');
