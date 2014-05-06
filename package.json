@@ -16,7 +16,8 @@
   },
   "keywords": [
     "javascript",
-    "lanuage"
+    "assembly",
+    "language"
   ],
   "dependencies": {
     "minimist": "~0.0.8",
