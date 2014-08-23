@@ -12,6 +12,8 @@ main:
 
 	mov dword [ebp-16], 100
 	mov dword [ebp-18], 0
+	mov dword [ebp-74], 'abcdefg'
+
 	; system call: write
 	push dword bee_len
 	push dword bee
@@ -20,6 +22,7 @@ main:
 	sub esp, 4
 	int 128
 	add esp, 16
+
 
 
 
