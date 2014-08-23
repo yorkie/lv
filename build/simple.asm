@@ -8,11 +8,20 @@ main:
 
 	push ebp 
 	mov ebp, esp
+	sub esp, 10
 
-	mov eax, 100
-	mov [ebx+16], eax
-	mov eax, 0
-	mov [ebx+18], eax
+	mov dword [ebp-16], 100
+	mov dword [ebp-18], 0
+	; system call: write
+	push dword bee_len
+	push dword bee
+	push dword 1
+	mov eax, 4
+	sub esp, 4
+	int 128
+	add esp, 16
+
+
 
 	; system call: exit
 	push dword 0
