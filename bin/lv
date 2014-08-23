@@ -8,6 +8,7 @@ var exec = require('child_process').exec;
 var argv = require('minimist')(process.argv.slice(2));
 var command = argv._[0];
 var DEFAULT_PATH = '/tmp/out';
+var enabledVerbose = false;
 
 function usage() {
   fs.createReadStream(path.join(__dirname, './usage.txt'))
@@ -15,8 +16,18 @@ function usage() {
     .pipe(process.stdout);
 }
 
+function verbose() {
+  if (!enabledVerbose)
+    return;
+  console.log.apply(this, arguments);
+}
+
 if (argv.help || process.argv.slice(2).length === 0) {
   usage();
+}
+
+if (argv.verbose) {
+  enabledVerbose = true;
 }
 
 switch (command) {
@@ -49,6 +60,7 @@ function lv_compile(callback) {
     console.error(err.stack);
   });
   mainparser.on('done', function(program) {
+    verbose('-->', out+'.asm');
     fs.writeFile(out+'.asm', program, function() {
       var child = exec(util.format('sh %s %s', path.join(__dirname, '../build.sh'), out), function(err) {
         if (callback && typeof callback === 'function') callback(err, out);
