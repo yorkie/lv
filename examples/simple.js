@@ -1,9 +1,4 @@
 
-var helloStr = 'Hello World\n';
-var foo = 10;
+const bee = 'Hello World\n';
 
-sys.write(helloStr);
-sys.write('\n');
-
-var beep = foo + helloStr;
-// var boop = helloStr + foo;
+var beep = 1;
