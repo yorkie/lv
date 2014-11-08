@@ -51,9 +51,10 @@ function lv_run() {
 function lv_compile(callback) {
   var filename = argv._[1];
   var out = argv._[2] || DEFAULT_PATH;
-  if (!/\.js$/.test(filename)) {
+  if (!filename)
+    throw new Error('filename required');
+  if (!/\.js$/.test(filename))
     filename += '.js';
-  }
 
   var mainparser = new Parser(filename);
   mainparser.on('error', function(err) {
