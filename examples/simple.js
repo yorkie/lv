@@ -1,8 +1,12 @@
 
+// const
 const bee = 'Hello World\n';
+const str = '2\n';
 
-var beep = 100;
-var boop = false;
-var str = 'abcdefg';
 sys.write(bee);
 sys.write(str);
+
+// variables
+var foo = 'abc\n';
+
+sys.write(foo);
