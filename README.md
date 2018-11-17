@@ -1,7 +1,7 @@
 
 # LV
 
-Javascript(ECMAScript) to Assembly tool based on NASM project.
+JavaScript(ECMAScript) to Assembly tool based on NASM project.
 
 This project is highly under being developed by [@yorkie](https://github.com/yorkie).
 
