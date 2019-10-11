@@ -1,13 +1,15 @@
 
-var fs = require('fs');
-var path = require('path');
-var exec = require('child_process').exec;
-var asm = require('../lib/asm');
+const fs = require('fs');
+const path = require('path');
+const exec = require('child_process').exec;
+const asm = require('../lib/asm');
 
-var tar = new asm();
-fs.writeFile(path.join(__dirname, './asm-test.asm'), tar.toString(), function() {
+const tar = new asm();
+const outputPath = path.join(__dirname, './outputs/asm-test')
+
+fs.writeFile(outputPath, tar.toString(), function() {
   console.log('write successfully');
-  var ch = exec('npm run asm');
+  const ch = exec(`sh build.sh ${outputPath}`);
   ch.stdout.pipe(process.stdout);
   ch.stderr.pipe(process.stderr);
 });
