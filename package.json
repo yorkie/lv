@@ -22,7 +22,7 @@
   "dependencies": {
     "esprima": "~1.0.4",
     "jshint": "^2.5.4",
-    "minimist": "~0.0.8"
+    "minimist": "~1.2.3"
   },
   "devDependencies": {
     "tape": "~1.0.0"
